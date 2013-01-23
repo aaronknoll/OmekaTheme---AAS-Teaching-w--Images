@@ -100,23 +100,21 @@ jQuery(document).ready(function(){
 	 <a href="#" class="show_hide" rel="#slidingDiv_2">
 	 	<img src="../../themes/aastheme2/images/imagedown.png" alt="Show" />
 	 </a>
-	<h2>Who would make a Picture like this?</h2>
+	<h2>Who would make a picture like this?</h2>
 </div>	  	
 	<div id="slidingDiv_2">
 		<!---  This is going to ceate the dropdown of things associated with the "who" -->
 			<!-- CREATOR / dCORE -->
 			<?php foreach (item('Dublin Core', 'Creator', 'all') as $creatoress): ?>
 				<h3>Creator</h3>
-					<dl>
-						<dt><?php echo $creatoress; ?></dt>
+						<p><?php echo $creatoress; ?></p>
 						<?php 
-						$def = findDefinition($creatoress); 
-						if($def){
-							?><dd><?php echo $def; ?></dd><?php
-							}
-						unset($def);
+						//$def = findDefinition($creatoress); 
+						//if($def){
+						//	?><!--<dd><?php //echo $def; ?></dd>--><?php
+						//	}
+						//unset($def);
 						?>
-					</dl>
 		   <?php endforeach ?>
 	</div>
 
@@ -124,7 +122,7 @@ jQuery(document).ready(function(){
  	<a href="#" class="show_hide" rel="#slidingDiv_3">
  		<img src="../../themes/aastheme2/images/imagedown.png" alt="Show" />
  	</a>
-	<h2>Why was this Picture Made?</h2>	  
+	<h2>When and why was this picture made?</h2>	  
  </div>	
 	<div id="slidingDiv_3">	
 	<!-- This is ging to create the drop down for the when and why -->
@@ -139,81 +137,126 @@ jQuery(document).ready(function(){
 	          <h3>Historical Context</h3>
 	           <p><?php echo $creatoress; ?></p>
 	   <?php endforeach ?>
+	   
+	   		<!-- Visual Culture Context / Teaching Images -->
+		<?php foreach (item('Item Type Metadata', 'Visual Culture Context', 'all') as $vcess): ?>
+	          <h3>Visual Culture Context</h3>
+	           <p><?php echo $vcess; ?></p>
+	   <?php endforeach ?>
 	</div>
 
 <div class="imagewidth">
  	<a href="#" class="show_hide" rel="#slidingDiv_4">
  		<img src="../../themes/aastheme2/images/imagedown.png" alt="Show" />
  	</a>
-	<h2>How and Where did People see this Picture?</h2>	   
+	<h2>How and where did people see this picture?</h2>	   
 </div>
 	<div id="slidingDiv_4">		  
 	<!--  This is going to create the drop down for the where did people see this picture -->
 		<!-- Publisher / dCORE -->
 		<?php foreach (item('Dublin Core', 'Publisher', 'all') as $publishinghouse): ?>
-				<h3>Publisher</h3>
-					<dl>
-						<dt><?php echo $publishinghouse; ?></dt>
-						<?php 
+						<?php
 						$def = findDefinition($publishinghouse); 
 						if($def){
-							?><dd><?php echo $def; ?></dd><?php
+							?>
+							<h3>Format</h3>
+								<dl>
+									<dt><?php echo $publishinghouse; ?></dt>
+									<dd><?php echo $def; ?></dd>
+								</dl>
+							<?php
 							}
-						unset($def);
-						?>
-					</dl>
+						else {?>
+		          				<h3>Publisher</h3>
+	           					<p><?php echo $publishinghouse; ?></p>
+						<?php }
+						unset($def);?>
 	   <?php endforeach ?>
 	   
 	   	<!-- Format / dCORE -->
 		<?php foreach (item('Dublin Core', 'Format', 'all') as $djformat): ?>
-				<h3>Format</h3>
-					<dl>
-						<dt><?php echo $djformat; ?></dt>
 						<?php 
 						$def = findDefinition($djformat); 
 						if($def){
-							?><dd><?php echo $def; ?></dd><?php
+							?>
+							<h3>Format</h3>
+								<dl>
+									<dt><?php echo $djformat; ?></dt>
+									<dd><?php echo $def; ?></dd>
+								</dl>
+							<?php
 							}
+						else {?>
+		          				<h3>Format</h3>
+	           					<p><?php echo $djformat; ?></p>
+						<?php }
 						unset($def);
 						?>
-					</dl>
 	   <?php endforeach ?>
 	   
-	   	<!-- Coverage / dCORE -->
-		<?php foreach (item('Dublin Core', 'Coverage', 'all') as $blankets): ?>
-				<h3>Coverage</h3>
-	           <p><?php echo $blankets; ?></p>
-	   <?php endforeach ?>
-	   
+
 		<!-- Orig Viewing Context / Teaching Images -->
 		<?php foreach (item('Item Type Metadata', 'Original Viewing Context', 'all') as $creatoress): ?>
 	          	<h3>Original Viewing Context</h3>
 	           <p><?php echo $creatoress; ?></p>
 	   <?php endforeach ?>
 	</div>
+	
+
+<div class="imagewidth">
+ 	<a href="#" class="show_hide" rel="#slidingDiv_6">
+ 		<img src="../../themes/aastheme2/images/imagedown.png" alt="Show" />
+ 	</a>
+	<h2>How can I learn more?</h2>	   
+</div>
+
+	<div id="slidingDiv_6">	
+			
+		<!-- Bibliography / Teaching Images -->
+		<?php foreach (item('Item Type Metadata', 'Bibliographic Information', 'all') as $bih): ?>
+	           <p><?php echo $bih; ?></p>
+	   <?php endforeach ?>	  
+	 </div> 
+
+
+
+<div class="imagewidth">
+ 	<a href="#" class="show_hide" rel="#slidingDiv_1">
+ 		<img src="../../themes/aastheme2/images/imagedown.png" alt="Show" />
+ 	</a>
+	<h2>How can I teach with this picture?</h2>	   
+</div>
+
+	<div id="slidingDiv_1">	
+			
+		<!-- Bibliography / Teaching Images -->
+		<?php foreach (item('Item Type Metadata', 'Focus Questions', 'all') as $fqs): ?>
+	           <p><?php echo $fqs; ?></p>
+	   <?php endforeach ?>	  
+	 </div> 
+	
+
+
 
 <div class="imagewidth">
  	<a href="#" class="show_hide" rel="#slidingDiv_5">
  		<img src="../../themes/aastheme2/images/imagedown.png" alt="Show" />
  	</a>
-	<h2>What other Pictures or Documents are Like This?</h2>
+	<h2>What other pictures or documents are like this?</h2>
 </div>
+
 	<div id="slidingDiv_5">			   
 	<!-- This is ging to create the drop down for the when and why -->
 		<!-- Relation / dCORE -->
-		<?php foreach (item('Dublin Core', 'Relation', 'all') as $datae): ?>
-			 	<h3>Images Like This One</h3>
-	           <p><?php echo $datae; ?></p>
-	   <?php endforeach ?>
-	
-		<!-- Bibliography / Teaching Images -->
-		<?php foreach (item('Item Type Metadata', 'Bibliography', 'all') as $creatoress): ?>
-	           	<h3>Bibliography</h3>
-	           <p><?php echo $creatoress; ?></p>
-	   <?php endforeach ?>	  
-	 </div> 
-	  
-	
+
+		<?php $newvar = (item('Dublin Core', 'Relation', 
+		array('delimiter' => ', '))) ;
+
+echo "<dl>";
+		echo findSuppData($newvar); 
+		echo "</dl>";
+	           ?>
+
 	<!-- If the item belongs to a collection, the following creates a link to that collection. -->
 	<?php if ( item_belongs_to_collection() ): ?>
         <div id="collection" class="element">
@@ -229,18 +272,42 @@ jQuery(document).ready(function(){
 		<div class="element-text"><?php echo item_tags_as_string(); ?></div> 
 	</div>
 	<?php endif;?>
+	</div>
 	
 
-	<ul class="item-pagination navigation">
-	<li id="previous-item" class="previous">
-		<?php echo link_to_previous_item('<img src="'. WEB_PUBLIC_THEME .'/aastheme2/images/goback.png" alt="Previous" style="vertical-align:middle;"/> Previous'); ?>
-	</li>
-	<li id="next-item" class="next">
-		<?php echo link_to_next_item('<img src="'. WEB_PUBLIC_THEME .'/aastheme2/images/goforward.png" alt="Previous" style="vertical-align:middle;"/> Next'); ?>
-	</li>
-	</ul>
+
 	<?php
 }
+
+function findSuppData($datae) 
+{
+	$splitter	=	explode("<br />", $datae);
+	$countspliutter	=	count($splitter);
+	//echo "the count is $countspliutter $splitter[0] $splitter[1]";//debug
+	for($x=0;$x<($countspliutter-1);$x++)
+		{
+		echo "<dt>$splitter[$x]</dt>";
+		$quotefinder	=	explode("\"", $splitter[$x]);
+		$ourid			=	$quotefinder[1]; //yeah, split the href, its here second in the array
+		
+		//get whatever data you might want
+		$thisdate = item('Dublin Core', 'Date', array('all' => true), get_item_by_id($ourid)); 
+		if($thisdate[0] != "")
+			{
+			echo "<dd>$thisdate[0]</dd>";
+			}
+		else {
+			echo "<dd>No date given.</dd>";
+		}
+		
+		//get whatever data you might want
+		$thisdate = item('Item Type Name', null, array('all' => true), get_item_by_id($ourid)); 
+		echo "<dd>$thisdate</dd>";
+		//echo "line break!<br />";	//debug
+		}
+
+}
+
 class TeachingImageItemTypePlugin
 {
     private $_db;
